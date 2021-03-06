@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
 const http = require('http')
-const midiW = require('./utils/midi-wrapper')
+const midiW = require('./midi/midi-wrapper')
 const driversRoute = require('./routes/drivers.js')
 const clientRoute = require('./routes/socket.io.js')
-const { initMidiOut } = require('./utils/initMidiOut')
-const { listenToClientSocket } = require('./utils/listenToClientSocket')
-const { initMidiIn } = require('./utils/initMidiIn')
-const { listenToMidiIn } = require('./utils/listenToMidiIn')
+const { initMidiOut } = require('./midi/initMidiOut')
+const { listenToClientSocket } = require('./midi/listenToClientSocket')
+const { initMidiIn } = require('./midi/initMidiIn')
+const { listenToMidiIn } = require('./midi/listenToMidiIn')
 const deviceName = 'NodeJS MIDI out'
 
 // Routes
@@ -25,6 +25,7 @@ let output = initMidiOut(midiW, deviceName)
 const server = http.Server(app)
 listenToClientSocket(server, output)
 
+// Start server
 server.listen(8080, function () {
   console.log('listening on *:8080')
 })
