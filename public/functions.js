@@ -8,6 +8,7 @@ function send(evtname, data) {
 
 function getKey(key) {
   if (!map[key]) return false
+
   var base = Object.assign({}, map[key])
   base.pitch += updown
   base.note += updown * 12

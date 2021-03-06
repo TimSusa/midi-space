@@ -1,7 +1,7 @@
-// use pino-pretty and express-pino-logger together
 const basicPino = require('pino')
+const { isDev } = require('../utils/is-dev')
 const basicPinoLogger = basicPino({
-  prettyPrint: !process.env.NODE_ENV.includes('prod'),
+  prettyPrint: isDev(),
 })
 const expressPino = require('express-pino-logger')({
   logger: basicPinoLogger,

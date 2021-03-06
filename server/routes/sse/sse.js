@@ -1,5 +1,5 @@
 //const { randomNumberControllerStream } = require('./sseController')
-const { sseMiddleware } = require('../../middleware/sse-middleware.js')
+const { sseMiddleware } = require('../../middleware/sseMiddleware.js')
 
 const router = require('express').Router()
 

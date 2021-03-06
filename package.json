@@ -1,5 +1,5 @@
 {
-  "name": "temp",
+  "name": "midi-space",
   "version": "1.0.0",
   "description": "",
   "main": "server/index.js",
@@ -21,7 +21,7 @@
     "rimraf": "*"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon --inspect=5001 --config nodemon.js server/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --inspect=5001 --config nodemon.js server/index.js -- --verbose",
     "build": "cross-env NODE_ENV=production rimraf node_modules && npm i --production",
     "start": "cross-env NODE_ENV=production nodemon --inspect=5001 --config nodemon.js server/index.js"
   },
