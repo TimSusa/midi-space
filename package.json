@@ -23,7 +23,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --inspect=5001 --config nodemon.js server/index.js -- --verbose",
     "build": "cross-env NODE_ENV=production rimraf node_modules && npm i --production",
-    "start": "cross-env NODE_ENV=production nodemon --inspect=5001 --config nodemon.js server/index.js"
+    "start": "cross-env NODE_ENV=production node server/index.js"
   },
   "keywords": [],
   "author": "",
