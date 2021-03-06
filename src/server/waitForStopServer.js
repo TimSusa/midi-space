@@ -1,8 +1,8 @@
-function waitForStopServer(startedServerTmp, processTmp) {
+function waitForStopServer(startedServer, processTmp) {
   // Graceful Shutdonw
   processTmp.on('SIGTERM', () => {
     console.log('SIGTERM signal received: closing HTTP server')
-    startedServerTmp.close(() => {
+    startedServer.close(() => {
       console.log('HTTP server closed')
     })
   })

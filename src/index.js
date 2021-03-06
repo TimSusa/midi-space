@@ -1,15 +1,16 @@
 const express = require('express')
 const app = express()
-const midiW = require('./midi/midi-wrapper')
+const midi = require('./midi/midi-wrapper')
 const sseRoute = require('./routes/sse/sse.js')
 const driversRoute = require('./routes/drivers/drivers.js')
 const socketRoute = require('./routes/socket/socket.io.js')
 const { initMidi } = require('./midi/initMidi')
-
 const init = require('./server/init.js')
 
-driversRoute(app, midiW)
+console.log('fasdf ', process.env.NODE_ENV)
 socketRoute(app)
-const { output, input } = initMidi(midiW)
+const { output, input } = initMidi(midi)
+driversRoute(app, midi, { output, input })
+
 init(app, { output })
 sseRoute(app, { output, input })
