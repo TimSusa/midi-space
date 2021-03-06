@@ -1,5 +1,4 @@
 var haveSocket = typeof socket !== 'undefined'
-console.log('haveSocket: ', haveSocket)
 
 function send(evtname, data) {
   if (haveSocket) {

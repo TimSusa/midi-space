@@ -1,9 +1,10 @@
+const { log } = require('../logger.js')
 function waitForStopServer(startedServer, processTmp) {
   // Graceful Shutdonw
   processTmp.on('SIGTERM', () => {
-    console.log('SIGTERM signal received: closing HTTP server')
+    log.info('SIGTERM signal received: closing HTTP server')
     startedServer.close(() => {
-      console.log('HTTP server closed')
+      log.info('HTTP server closed')
     })
   })
 }

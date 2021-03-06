@@ -3,13 +3,13 @@ function randomNumberControllerStream(req, res) {
     const data = {
       value: Math.random(),
     }
-    console.log(data)
     res.sendEventStreamData(data)
   }, 1000)
 
   // close
   res.on('close', () => {
     clearInterval(interval)
+    res.log.debug('close random numbers')
     res.end()
   })
 }

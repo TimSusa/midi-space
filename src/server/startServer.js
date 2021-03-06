@@ -1,7 +1,8 @@
-function startServer(serverTmp, port) {
-  // Start server
-  return serverTmp.listen(port, function () {
-    console.log('listening on *:', port)
+const { log } = require('../logger.js')
+
+function startServer(server, port) {
+  return server.listen(port, function () {
+    log.info(`listening on *: ${port}`)
   })
 }
 exports.startServer = startServer

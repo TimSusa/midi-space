@@ -1,6 +1,8 @@
-function listenToMidiIn(inputTmp) {
-  inputTmp.on('noteon', function (msg) {
-    console.log('note on msg ', msg)
+const { log } = require('../logger.js')
+
+function listenToMidiIn(input) {
+  input.on('noteon', function (msg) {
+    log.info('note on msg ', msg)
   })
 }
 exports.listenToMidiIn = listenToMidiIn
