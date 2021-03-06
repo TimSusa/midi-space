@@ -9,7 +9,7 @@
     "js": "node --harmony"
   },
   "watch": [
-    "./src/*"
+    "./**/*"
   ],
   "env": {
     "NODE_ENV": "development"
