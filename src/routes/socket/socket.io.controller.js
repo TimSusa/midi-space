@@ -13,6 +13,7 @@ module.exports = {
         __dirname,
         '..',
         '..',
+        '..',
         'node_modules',
         'socket.io-client',
         'dist'

@@ -1,6 +1,10 @@
 # MIDI SPACE
 - Central running MIDI Server Backend Service
 - Could be inspected via browser 
+- Connects via Websockets 
+- Broadcasts Server Sent Events
+- Modular structure
+
 ``` 
 http://$IP:$PORT
 ``` 

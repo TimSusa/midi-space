@@ -1,11 +1,15 @@
 const express = require('express')
 const app = express()
 const midiW = require('./midi/midi-wrapper')
-const driversRoute = require('./routes/drivers.js')
-const clientRoute = require('./routes/socket.io.js')
+const sseRoute = require('./routes/sse/sse.js')
+const driversRoute = require('./routes/drivers/drivers.js')
+const socketRoute = require('./routes/socket/socket.io.js')
+const { initMidi } = require('./midi/initMidi')
+
 const init = require('./server/init.js')
 
 driversRoute(app, midiW)
-clientRoute(app, express)
-
-init(app, midiW)
+socketRoute(app)
+const { output, input } = initMidi(midiW)
+init(app, { output })
+sseRoute(app, { output, input })
