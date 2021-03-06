@@ -1,4 +1,4 @@
-const { log } = require('../../logger.js')
+const { log } = require('../../utils/logger.js')
 
 module.exports = {
   getInputs: (req, res, midiW) => {

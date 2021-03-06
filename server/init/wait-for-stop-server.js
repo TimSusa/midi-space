@@ -1,4 +1,4 @@
-const { log } = require('../logger.js')
+const { log } = require('../utils/logger.js')
 function waitForStopServer(startedServer, processTmp) {
   // Graceful Shutdonw
   processTmp.on('SIGTERM', () => {

@@ -1,11 +1,9 @@
-const { initMidiOut } = require('./initMidiOut')
-const { initMidiIn } = require('./initMidiIn')
-//const { listenToMidiIn } = require('./listenToMidiIn')
+const { initMidiOut } = require('./init-midi-out.js')
+const { initMidiIn } = require('./init-midi-in.js')
 const deviceName = 'NodeJS MIDI out'
 
 function initMidi(midiWTmp) {
   let input = initMidiIn(midiWTmp, null)
-  //listenToMidiIn(input)
 
   let output = initMidiOut(midiWTmp, deviceName)
   return { output, input }

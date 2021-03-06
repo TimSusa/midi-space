@@ -1,5 +1,5 @@
 const socketio = require('socket.io')
-const { log } = require('../logger.js')
+const { log } = require('../utils/logger.js')
 
 function listenToClientSocket(serverTmp, outputTmp) {
   const io = socketio(serverTmp)

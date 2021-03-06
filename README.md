@@ -36,12 +36,22 @@ http://localhost:8080
 
 ## Available Inputs
 ``` 
-http://localhost:8080/drivers/inputs
+GET $hostname:PORT/drivers/inputs
+``` 
+
+## Active Input
+``` 
+GET $hostname:PORT/drivers/input
 ``` 
 
 ## Available Outpus
 ``` 
-http://localhost:8080/drivers/outputs
+GET $hostname:PORT/drivers/outputs
+``` 
+
+## Active Output
+``` 
+GET $hostname:PORT/drivers/output
 ``` 
 
 # Credits to 
