@@ -1,3 +1,6 @@
+// Heavily inspirated by easymidi
+// Anyhow, I want to have direct access to the stream
+// which is not offered for so far by easymidi.
 const midi = require('midi')
 const EventEmitter = require('events').EventEmitter
 
