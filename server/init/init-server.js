@@ -10,9 +10,9 @@ function initServer(app, { output, input }) {
 
   const sse = new SSE(server)
   sse.on('connection', function (client) {
-    input.on('noteon', function (msg) {
-      log.info('note on ', JSON.stringify(msg))
-      client.send(JSON.stringify(msg))
+    input.on('message', function (msg) {
+      log.debug('Incoming MIDI Message: ', JSON.stringify(msg))
+      client.send(JSON.stringify({ in: input.name, ...msg }))
     })
   })
 
