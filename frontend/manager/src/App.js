@@ -6,7 +6,7 @@ const useEventSource = (url) => {
   const [data, updateData] = useState(null);
 
   useEffect(() => {
-    const source = new EventSource(url); //new EventSource(url);
+    const source = new EventSource(url);
 
     source.onmessage = function (event) {
       console.log('SSE Client event ', JSON.parse(event.data))
