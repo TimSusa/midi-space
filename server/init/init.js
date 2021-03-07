@@ -4,6 +4,7 @@ const midi = require('../midi/midi-wrapper')
 const routeSocket = require('../routes/socket/socket.io.js')
 const routeDrivers = require('../routes/drivers/drivers.js')
 const routeServerSentEvents = require('../routes/sse/sse.js')
+const routeManager = require('../routes/home/home.js')
 const { initMidi } = require('../midi/init-midi.js')
 const initServer = require('./init-server.js')
 const logMw = require('../middleware/log-middleware')
@@ -17,6 +18,7 @@ function init(args) {
   routeSocket(app)
   routeDrivers(app, midi, { output, input })
   routeServerSentEvents(app, { output, input })
+  routeManager(app)
   initServer(app, { output })
 }
 

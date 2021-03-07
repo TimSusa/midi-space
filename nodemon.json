@@ -2,15 +2,16 @@
   "restartable": "rs",
   "ignore": [
     ".git",
-    "node_modules/**/node_modules"
+    "node_modules/**/node_modules",
+    "frontend"
   ],
   "verbose": true,
   "execMap": {
     "js": "node --harmony"
   },
   "watch": [
-    ".public/**/*",
-    ".server/**/*"
+    "./public-keyboard/**/*",
+    "./server/**/*"
   ],
   "env": {
     "NODE_ENV": "development"

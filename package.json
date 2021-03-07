@@ -23,13 +23,27 @@
   "scripts": {
     "dev": "npm run dev:server",
     "dev:server": "cross-env NODE_ENV=development nodemon --inspect=5001 --config nodemon.js server/index.js -- --verbose",
+    "build": "npm i && npm run build:server && npm run build:client",
     "build:server": "cross-env NODE_ENV=production rimraf node_modules && npm i --production",
-    "start:server": "cross-env NODE_ENV=production node server/index.js"
+    "build:client": "cross-env NODE_ENV=production && cd frontend/manager && npm run build && cp -r build/* ../../build/",
+    "start": "cross-env NODE_ENV=production node server/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "engines": {
     "node": "=10.x"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
