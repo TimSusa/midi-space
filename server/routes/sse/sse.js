@@ -8,7 +8,7 @@ module.exports = (app, { input }) => {
   router.route('/input').get(function (req, res) {
     input.on('noteon', (data) => {
       res.sendEventStreamData(Object.assign({}, data, { name: input.name }))
-      res.on('close', () => {
+      res.once('close', () => {
         //res.end()
       })
     })

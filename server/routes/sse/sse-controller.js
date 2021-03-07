@@ -7,7 +7,7 @@ function randomNumberControllerStream(req, res) {
   }, 1000)
 
   // close
-  res.on('close', () => {
+  res.once('close', () => {
     clearInterval(interval)
     res.log.debug('close random numbers')
     res.end()
