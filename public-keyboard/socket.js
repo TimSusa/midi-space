@@ -26,8 +26,8 @@ function bootstrap() {
   // }
 }
 
-if (typeof io !== 'undefined') {
-  var socket = io()
+if (typeof window.io !== 'undefined') {
+  var socket = window.io()
   socket.on('connected', function (msg) {
     console.log(msg)
     bootstrap()

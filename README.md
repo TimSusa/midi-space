@@ -26,10 +26,9 @@ npm start
 
 # Endpoints
 ## Virtual Keyboard
-- Open browser:
-
+- Open the browser and put in this url:
 ``` 
-http://localhost:8080
+http://localhost:8080/keyboard
 ``` 
 
 # Midi Driver

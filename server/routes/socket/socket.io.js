@@ -7,7 +7,8 @@ const router = express.Router()
 module.exports = (app) => {
   router.route('/socket.io.js').get(socketIoController)
   app.use(
-    express.static(path.join(__dirname, '..', '..', '..', 'public')),
+    '/keyboard',
+    express.static(path.join(__dirname, '..', '..', '..', 'public-keyboard')),
     router
   )
 }
