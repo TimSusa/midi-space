@@ -6,7 +6,7 @@ export function Monitor(props) {
   const [value, setValue] = React.useState([]);
 
   useEffect(() => {
-    const { in: inpT, channel, note, velocity, _type } = JSON.parse(text) || {}
+    const { in: inpT, channel, note, velocity, _type } = text || {}
     const tmp = value.concat({ input: inpT, channel, note, velocity, _type })
     const tpm = tmp.filter((item) => !!item.input)
     setValue(tpm)
