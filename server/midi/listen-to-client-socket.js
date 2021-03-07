@@ -15,7 +15,7 @@ function listenToClientSocket(serverTmp, outputTmp) {
     })
 
     socket.on('noteoff', function (data) {
-      log.info('emitting noteoff:', data)
+      log.debug('emitting noteoff:', data)
       outputTmp.send('noteoff', data)
     })
   })
