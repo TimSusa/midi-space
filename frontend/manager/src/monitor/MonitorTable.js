@@ -22,12 +22,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
 const headCells = [
-  { id: 'date', numeric: false, disablePadding: true, label: 'Id' },
+  { id: 'id', numeric: true, disablePadding: false, label: 'Id' },
   { id: 'name', numeric: false, disablePadding: false, label: 'Name' },
-  { id: 'calories', numeric: true, disablePadding: false, label: 'Channel' },
-  { id: 'fat', numeric: true, disablePadding: false, label: 'Adress' },
-  { id: 'carbs', numeric: true, disablePadding: false, label: 'Value' },
-  { id: 'protein', numeric: true, disablePadding: false, label: 'Type' },
+  { id: 'channel', numeric: true, disablePadding: false, label: 'Channel' },
+  { id: 'adress', numeric: true, disablePadding: false, label: 'Adress' },
+  { id: 'value', numeric: true, disablePadding: false, label: 'Value' },
+  { id: 'type', numeric: true, disablePadding: false, label: 'Type' },
 ];
 
 function EnhancedTableHead(props) {
@@ -50,8 +50,8 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
-            padding={headCell.disablePadding ? 'none' : 'default'}
+            //align={headCell.numeric ? 'right' : 'left'}
+            //padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
@@ -119,7 +119,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          MIDI Input Monitor
+          Live MIDI Monitor
         </Typography>
       )}
 
@@ -171,7 +171,7 @@ const useStyles = makeStyles((theme) => ({
 export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
+  const [orderBy, setOrderBy] = React.useState('id');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
@@ -273,7 +273,7 @@ export default function EnhancedTable(props) {
                           inputProps={{ 'aria-labelledby': labelId }}
                         />
                       </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
+                      <TableCell component="th" id={labelId} scope="row">
                         {
                           index
                         }
@@ -281,16 +281,16 @@ export default function EnhancedTable(props) {
                       <TableCell align="left">
                         {input}
                       </TableCell>
-                      <TableCell align="right">{channel}</TableCell>
-                      <TableCell align="right">{note}</TableCell>
-                      <TableCell align="right">{velocity}</TableCell>
-                      <TableCell align="right">{_type}</TableCell>
+                      <TableCell align="left">{channel}</TableCell>
+                      <TableCell align="left">{note}</TableCell>
+                      <TableCell align="left">{velocity}</TableCell>
+                      <TableCell align="left">{_type}</TableCell>
                     </TableRow>
                   );
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={5} />
                 </TableRow>
               )}
             </TableBody>
@@ -299,7 +299,8 @@ export default function EnhancedTable(props) {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={props.length}
+          count={props.length || 3}
+
           rowsPerPage={rowsPerPage}
           page={page}
           onChangePage={handleChangePage}

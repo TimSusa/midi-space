@@ -17,5 +17,6 @@ module.exports = (app, midiW, { output, input }) => {
   router
     .route('/outputs')
     .get((req, res) => driversController.getOutputs(req, res, midiW))
+
   app.use('/drivers', router)
 }

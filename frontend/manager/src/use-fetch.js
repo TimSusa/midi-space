@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+
 export const useFetch = (url) => {
   const cache = useRef({});
   const [status, setStatus] = useState('idle');
@@ -14,7 +15,7 @@ export const useFetch = (url) => {
         setStatus('fetched');
       } else {
         const response = await fetch(url);
-        const data = await response.json();
+        const data = await response.text();
         cache.current[url] = data; // set response in cache;
         setData(data);
         setStatus('fetched');
