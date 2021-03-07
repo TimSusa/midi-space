@@ -11,7 +11,8 @@
     "nodemon": "^2.0.7",
     "pino": "^6.11.1",
     "pino-pretty": "^4.7.0",
-    "socket.io": "^1.5.0"
+    "socket.io": "^1.5.0",
+    "sse": "0.0.8"
   },
   "devDependencies": {
     "eslint": "^7.21.0",

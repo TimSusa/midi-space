@@ -2,7 +2,7 @@
 function sseMiddleware(req, res, next) {
   res.setHeader('Content-Type', 'text/event-stream')
   res.setHeader('Cache-Control', 'no-cache')
-
+  res.setHeader('Connection', 'keep-alive')
   // only if you want anyone to access this endpoint
   res.setHeader('Access-Control-Allow-Origin', '*')
 

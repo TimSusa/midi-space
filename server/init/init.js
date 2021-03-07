@@ -3,7 +3,7 @@ const app = express()
 const midi = require('../midi/midi-wrapper')
 const routeSocket = require('../routes/socket/socket.io.js')
 const routeDrivers = require('../routes/drivers/drivers.js')
-const routeServerSentEvents = require('../routes/sse/sse.js')
+//const routeServerSentEvents = require('../routes/sse/sse.js')
 const routeManager = require('../routes/home/home.js')
 const { initMidi } = require('../midi/init-midi.js')
 const initServer = require('./init-server.js')
@@ -17,9 +17,9 @@ function init(args) {
   const { output, input } = initMidi(midi)
   routeSocket(app)
   routeDrivers(app, midi, { output, input })
-  routeServerSentEvents(app, { output, input })
+  //routeServerSentEvents(app, { output, input })
   routeManager(app)
-  initServer(app, { output })
+  initServer(app, { output, input })
 }
 
 exports.init = init

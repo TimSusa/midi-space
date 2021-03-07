@@ -13,17 +13,7 @@ function bootstrap() {
 
   setupArpeggiator()
 
-  const sourceInput = new window.EventSource('/sse/input')
 
-  sourceInput.onmessage = function (event) {
-    console.log(JSON.parse(event.data))
-  }
-
-  // const sourceRandom = new window.EventSource('/sse/random')
-
-  // sourceRandom.onmessage = function (event) {
-  //   console.log(JSON.parse(event.data))
-  // }
 }
 
 if (typeof window.io !== 'undefined') {
